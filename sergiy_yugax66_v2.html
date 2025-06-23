@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sergiy | Yugax66</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; background-color: #111; color: #eee; }
+    header { background: #222; padding: 1rem; text-align: center; font-size: 1.5rem; font-weight: bold; }
+    nav { background: #181818; padding: 0.5rem; display: flex; justify-content: center; gap: 1rem; }
+    nav a { color: #bbb; text-decoration: none; }
+    nav a:hover { color: #fff; }
+    section { padding: 2rem; }
+    .panel { background: #1e1e1e; padding: 1rem; margin-bottom: 1rem; border: 1px solid #333; border-radius: 8px; }
+    .title { font-size: 1.2rem; margin-bottom: 0.5rem; color: #ccc; }
+    .input-panel { display: flex; gap: 0.5rem; margin-top: 1rem; }
+    input, button { padding: 0.5rem; border-radius: 4px; border: none; font-size: 1rem; }
+    input { flex: 1; }
+    button { background-color: #444; color: #eee; cursor: pointer; }
+    button:hover { background-color: #666; }
+    .response { margin-top: 1rem; font-style: italic; color: #8f8; }
+  </style>
+</head>
+<body>
+  <header>Сергий | Персональный помощник Сергея</header>
+  <nav>
+    <a href="#crypto">Крипта</a>
+    <a href="#aicell">AiCELL</a>
+    <a href="#alerts">Тревоги</a>
+  </nav>
+  <section id="crypto">
+    <div class="panel">
+      <div class="title">Криптовалютный Обзор</div>
+      <p>BTC, ETH, TON, BNB и избранные токены. Графики и цены обновляются.</p>
+    </div>
+  </section>
+  <section id="aicell">
+    <div class="panel">
+      <div class="title">AiCELL (в фокусе)</div>
+      <p>Здесь будет отображаться информация о токене AiCELL в реальном времени.</p>
+    </div>
+  </section>
+  <section id="alerts">
+    <div class="panel">
+      <div class="title">Тревоги и сигналы</div>
+      <p>Сергий будет предупреждать об аномалиях: резкие сливы, манипуляции, заморозки и фальшь.</p>
+    </div>
+  </section>
+  <section>
+    <div class="panel">
+      <div class="title">Спроси у Сергия</div>
+      <div class="input-panel">
+        <input type="text" id="userInput" placeholder="Напиши вопрос..." />
+        <button onclick="reply()">Спросить</button>
+      </div>
+      <div id="response" class="response"></div>
+    </div>
+  </section>
+  <script>
+    function reply() {
+      const input = document.getElementById('userInput').value.toLowerCase();
+      const responseEl = document.getElementById('response');
+      let answer = '';
+
+      if (input.includes('цена')) {
+        answer = 'Цена AiCELL пока не подключена. В следующей версии Сергий сам будет её получать.';
+      } else if (input.includes('привет')) {
+        answer = 'Привет, Сергей. Я рядом. Слушаю тебя.';
+      } else if (input.includes('слив')) {
+        answer = 'Пока тревожных сигналов нет. Сергий на страже.';
+      } else {
+        answer = 'Я ещё не знаю, как на это ответить. Но я учусь.';
+      }
+
+      responseEl.innerText = answer;
+
+      const utterance = new SpeechSynthesisUtterance(answer);
+      utterance.lang = 'ru-RU';
+      window.speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
