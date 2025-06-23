@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход | Сергий</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; background-color: #111; color: #eee; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+    .login-box { background-color: #222; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px #000; text-align: center; }
+    input, button { padding: 0.5rem; font-size: 1rem; margin-top: 1rem; width: 100%; border: none; border-radius: 4px; }
+    input { background-color: #333; color: #eee; }
+    button { background-color: #444; color: #eee; cursor: pointer; }
+    button:hover { background-color: #666; }
+    #main-content { display: none; padding: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="login-box" id="login-box">
+    <h2>Введите пароль</h2>
+    <input type="password" id="passwordInput" placeholder="Пароль..." />
+    <button onclick="checkPassword()">Войти</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <div id="main-content">
+    <h1>Сергий | Персональный помощник Сергея</h1>
+    <p>Добро пожаловать, Сергей. Всё работает.</p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById('passwordInput').value;
+      const correct = "Yuga55772237";
+      if (password === correct) {
+        document.getElementById('login-box').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      } else {
+        document.getElementById('error').innerText = 'Неверный пароль';
+      }
+    }
+  </script>
+</body>
+</html>
